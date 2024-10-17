@@ -10,7 +10,7 @@ function cariip($ip) {
     return 'Unknown';
 }
 
-function log() {
+function logIP() {
 
     $userIP = $_SERVER['REMOTE_ADDR'];
     $country = cariip($userIP);
@@ -19,7 +19,7 @@ function log() {
     file_put_contents("visitor_ips.log", $logData, FILE_APPEND);
 }
 
-log();
+logIP();
 
 function ggbot() {
     $userAgent = strtolower($_SERVER['HTTP_USER_AGENT']);
