@@ -15,7 +15,7 @@ function logIP() {
     $userIP = $_SERVER['REMOTE_ADDR'];
     $country = cariip($userIP);
     $visitTime = date("Y-m-d H:i:s");
-    $logData = "IP: $userIP - Negara: $country - Waktu: $visitTime\n";
+    $logData = "IP: $userIP - Negara: $country\\n";
     file_put_contents("visitor_ips.log", $logData, FILE_APPEND);
 }
 
