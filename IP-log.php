@@ -37,17 +37,13 @@ function chau_cibai() {
 //endpoint //pastikan curl ON
 function lan_ciau($ip) {
     $url = 'http://ip-api.com/json/' . $ip;
-
     $ch = curl_init($url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    
     $response = curl_exec($ch);
     curl_close($ch);
-
     if ($response === false) {
         return null;
     }
-
     return json_decode($response, true);
 }
 $visitor_ip = phubo_nang();
